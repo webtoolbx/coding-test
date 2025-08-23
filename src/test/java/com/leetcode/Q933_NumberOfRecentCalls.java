@@ -11,7 +11,7 @@ public class Q933_NumberOfRecentCalls {
     int[] pings = new int[10000];
     int idx = 0;
     int ping = 0;
-    public RecentCounter() {
+    public void RecentCounter() {
 
     }
 
