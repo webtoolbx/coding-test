@@ -13,7 +13,7 @@ public class Q17_LetterCombinationsonaPhoneNumber {
     }
 
     public int maxDepth(TreeNode root) {
-        return cal(root);
+        return 1;
     }
 
     public List<String> letterCombinations(String digits) {
@@ -60,5 +60,6 @@ public class Q17_LetterCombinationsonaPhoneNumber {
 
             }
         }
+        return list;
     }
 }
