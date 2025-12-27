@@ -1,9 +1,8 @@
-package com.leetcode;
+package com.leetcode.quest;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import java.util.Arrays;
 import java.util.Stack;
 
 public class Quest2_DailyTemperatures {

@@ -1,12 +1,6 @@
-package com.leetcode;
+package com.leetcode.quest;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.Map;
-import java.util.Queue;
 
 public class Quest2_TimeNeededtoBuyTickets {
 
