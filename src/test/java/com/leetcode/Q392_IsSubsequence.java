@@ -1,12 +1,21 @@
 package com.leetcode;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class Q392_IsSubsequence {
 
     @Test
     void test() {
-        System.out.println(isSubsequence("abc", "ahbgdc"));
+        Assertions.assertTrue(isSubsequence("abc", "ahbgdc"));
+        Assertions.assertFalse(isSubsequence("axc", "ahbgdc"));
+        Assertions.assertTrue(isSubsequence("", "ahbgdc"));
+        Assertions.assertFalse(isSubsequence("abc", ""));
+
+        Assertions.assertTrue(isSubsequence2("abc", "ahbgdc"));
+        Assertions.assertFalse(isSubsequence2("axc", "ahbgdc"));
+        Assertions.assertTrue(isSubsequence2("", "ahbgdc"));
+        Assertions.assertFalse(isSubsequence2("abc", ""));
     }
 
     public boolean isSubsequence(String s, String t) {
@@ -34,4 +43,32 @@ public class Q392_IsSubsequence {
 
         return false;
     }
+
+    public boolean isSubsequence2(String s, String t) {
+        // t에 있는 내용을 삭제해서 s를 만들 수 있는가?
+        // s 에 있는 데이터가 t에 꼭 있어야함
+        // 근데 이게 순차니까 idx1, idx2 를 두고서 비교해보면 될거 같아.
+
+        int idx = 0;
+        int l1 = s.length();
+        int l2 = t.length();
+        // while 보다 안전하게 for문으로 가자
+        for(int i = 0; i < l1; i++){
+            boolean match = false;
+            while(idx < l2){
+                if(s.charAt(i) == t.charAt(idx)){
+                    match = true;
+                    break;
+                }
+                idx++;
+            }
+            if(match){
+                idx++;
+            } else {
+                return false;
+            }
+        }
+        return true;
+    }
+
 }
