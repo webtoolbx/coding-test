@@ -1,65 +1,57 @@
 package com.leetcode;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class Q17_LetterCombinationsonaPhoneNumber {
 
     @Test
     void test() {
-        System.out.println("result : " + maxDepth(new TreeNode(1)));
-    }
+        // Case 1: "23"
+        List<String> result1 = letterCombinations("23");
+        List<String> expected1 = List.of("ad","ae","af","bd","be","bf","cd","ce","cf");
+        Assertions.assertEquals(expected1.size(), result1.size());
+        Assertions.assertTrue(result1.containsAll(expected1));
 
-    public int maxDepth(TreeNode root) {
-        return 1;
+        // Case 2: ""
+        Assertions.assertEquals(List.of(), letterCombinations(""));
+
+        // Case 3: "2"
+        Assertions.assertEquals(List.of("a", "b", "c"), letterCombinations("2"));
     }
 
     public List<String> letterCombinations(String digits) {
-        List<String> list = new ArrayList<>();
-        list.add(digits);
-        int repeat = digits.length();
-        for(int i = 0; i < repeat; i++){
-            char c = digits.charAt(i);
-            if(c == '2'){
-                // list.add();
-            } else if(c == '3'){
-
-            } else if(c == '4'){
-
-            } else if(c == '5'){
-
-            } else if(c == '6'){
-
-            } else if(c == '7'){
-
-            } else if(c == '8'){
-
-            } else if(c == '9'){
-
-            }
+        if (digits == null || digits.length() == 0) {
+            return new ArrayList<>();
         }
 
-        for(char c : digits.toCharArray()){
-            if(c == '2'){
+        Map<Character, List<String>> map = new HashMap<>();
+        map.put('2', List.of("a","b","c"));
+        map.put('3', List.of("d","e","f"));
+        map.put('4', List.of("g","h","i"));
+        map.put('5', List.of("j","k","l"));
+        map.put('6', List.of("m","n","o"));
+        map.put('7', List.of("p","q","r","s"));
+        map.put('8', List.of("t","u","v"));
+        map.put('9', List.of("w","x","y","z"));
 
-            } else if(c == '3'){
-
-            } else if(c == '4'){
-
-            } else if(c == '5'){
-
-            } else if(c == '6'){
-
-            } else if(c == '7'){
-
-            } else if(c == '8'){
-
-            } else if(c == '9'){
-
+        List<String> answer = new ArrayList<>();
+        answer.add("");
+        for(char digit : digits.toCharArray()){
+            List<String> list = map.get(digit);
+            List<String> newList = new ArrayList<>();
+            for(String s : list){
+                for(String a : answer){
+                    newList.add(a + s);
+                }
             }
+            answer = newList;
         }
-        return list;
+        return answer;
     }
 }
