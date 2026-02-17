@@ -84,4 +84,21 @@ public class Q401_BinaryWatch {
             visited[i] = false;
         }
     }
+
+    public List<String> readBinaryWatch2(int turnedOn) {
+        List<String> answer = new ArrayList<>();
+        for(int i = 0; i < 12; i++){
+            for(int j = 0; j < 60; j++){
+                if(Integer.bitCount(i) + Integer.bitCount(j) == turnedOn){
+                    answer.add(String.format("%d:%02d", i, j));
+                }
+            }
+        }
+        for(int h : hourSet){
+            for(int m : minutesSet){
+                answer.add(String.format("%d:%02d", h, m));
+            }
+        }
+        return answer;
+    }
 }
