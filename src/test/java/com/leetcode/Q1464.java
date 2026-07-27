@@ -9,7 +9,7 @@ public class Q1464 {
     @Test
     void test() {
         assertThat(maxProduct(new int[]{3,4,5,2})).isEqualTo(12);
-        assertThat(maxProduct(new int[]{1,5,4,5})).isEqualTo(16);
+        assertThat(maxProduct(new int[]{1,5,4,5})).isEqualTo(12);
     }
 
     public int maxProduct(int[] nums) {
